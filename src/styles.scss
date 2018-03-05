@@ -1,0 +1,22 @@
+$fa-font-path: "~font-awesome/fonts";
+@import '~font-awesome/scss/font-awesome';
+
+@import '~app/sass/variables';
+
+$modal-card-head-border-bottom: none;
+$modal-card-foot-border-top: none;
+$navbar-height: $my-navbar-height;
+
+@import '~bulma/bulma.sass';
+
+#site {
+	// sticky footer trick
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+#site-content {
+	margin-top: $my-navbar-height; // for the fixed navbar
+	flex: 1; // sticky footer trick
+}

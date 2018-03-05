@@ -1,0 +1,90 @@
+<div class="modal is-active" id="loginModal">
+	<div class="modal-background"></div>
+	<div class="modal-card">
+
+		<div class="modal-card-head">
+			<p class="modal-card-title has-text-centered">Login Form</p>
+		</div>
+		<div class="modal-card-body">
+
+			<form [formGroup]="loginForm" novalidate class="has-big-margin-bottom">
+				<div class="field">
+					<p class="control has-icons-left">
+						<input type="email"  formControlName="email" class="input" placeholder="Email"
+							[ngClass]="{'is-danger': email.invalid && email.touched}">
+						<span class="icon is-small is-left">
+							<i class="fa fa-envelope"></i>
+						</span>
+					</p>
+					<div *ngIf="email.invalid && email.touched" class="has-text-danger">
+						<div [hidden]="!email.errors.required">Email is required.</div>
+						<div [hidden]="!email.errors.patternInvalid">Email is invalid.</div>
+					</div>
+				</div>
+	
+				<div class="field">
+					<p class="control has-icons-left">
+						<input type="password" formControlName="password" class="input" placeholder="Password"
+							[ngClass]="{'is-danger': password.invalid && password.touched}">
+						<span class="icon is-small is-left">
+							<i class="fa fa-lock"></i>
+						</span>
+					</p>
+					<div *ngIf="password.invalid && password.touched" class="has-text-danger">
+						<div [hidden]="!password.errors.required">Password is required.</div>
+					</div>
+				</div>
+				
+				<div class="field">
+					<div class="control">
+						<button
+							class="button is-primary is-fullwidth"
+							(click)="emailLogin()"
+							[disabled]="loginForm.invalid">
+							Login <span class="is-hidden-mobile">&nbsp;with Email</span>
+						</button>
+					</div>
+				</div>
+				<div class="field">
+					<div class="control">
+						<button
+							class="button is-link is-fullwidth"
+							(click)="emailSignup()"
+							[disabled]="loginForm.invalid">
+							Register <span class="is-hidden-mobile">&nbsp;with Email</span>
+						</button>
+					</div>						
+				</div>
+
+			</form>
+
+			<div class="field">
+				<button (click)="googleLogin()" class="button is-danger is-fullwidth">
+					<span class="icon">
+						<i class="fa fa-google-plus"></i>
+					</span>
+					<span>Login with Google</span>
+				</button>
+			</div>
+	
+			<div class="field">
+				<button (click)="facebookLogin()" class="button is-link is-fullwidth">
+					<span class="icon">
+						<i class="fa fa-facebook"></i>
+					</span>
+					<span>Login with Facebook</span>
+				</button>
+			</div>
+
+			<div *ngIf="loginError && loginError.length > 0" class="field has-big-margin-top">
+				<div class="has-text-danger is-fullwidth">
+					{{ loginError }}
+				</div>
+			</div>
+
+		</div>
+
+		<div class="modal-card-foot">
+		</div>
+	</div>
+</div>

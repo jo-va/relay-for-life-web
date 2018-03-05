@@ -1,0 +1,6 @@
+@import '~app/sass/variables';
+
+.map {
+	width: 100%;
+	height: calc(100vh - #{$my-navbar-height} - #{$my-footer-height});
+}

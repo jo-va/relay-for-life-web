@@ -1,0 +1,60 @@
+<nav class="navbar is-link has-shadow is-fixed-top">
+	<div class="navbar-brand">
+		<a class="navbar-item brand" routerLink="/">
+			<span class="is-size-6 is-uppercase has-text-weight-semibold">Le relais pour la vie 2018</span>
+		</a>
+
+		<div class="navbar-burger burger" data-target="navMenu">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+	</div>
+
+	<div class="navbar-menu" id="navMenu">
+		<!--<div class="navbar-start">
+			<a class="navbar-item" routerLink="/">
+				<span class="icon">
+					<i class="fa fa-home"></i>
+				</span>
+				<span>Home</span>
+			</a>
+		</div>-->
+		<div class="navbar-end">
+			<a class="navbar-item" routerLink="/">
+				<span class="icon">
+					<i class="fa fa-map"></i>
+				</span> 
+				&nbsp;
+				<span>Map</span>
+			</a>
+			<a class="navbar-item" routerLink="/groups">
+				<span class="icon">
+					<i class="fa fa-users"></i>
+				</span>
+				&nbsp;
+				<span>Groups</span>
+			</a>
+			<a class="navbar-item"
+				*ngIf="auth.user | async as user; else showLogin"
+				(click)="logout()">
+				<span class="icon">
+					<i class="fa fa-sign-out"></i>
+				</span> 
+				&nbsp;
+				<span>Logout</span>
+				<img [src]="user.photoURL" class="userpic is-hidden-touch" *ngIf="user.photoURL">
+			</a>
+			<ng-template #showLogin>
+				<a class="navbar-item" routerLink="/login">
+					<span class="icon">
+						<i class="fa fa-sign-in"></i>
+					</span> 
+					&nbsp;
+					<span>Login</span>
+				</a>
+			</ng-template>
+		</div>
+	</div>
+</nav>
+

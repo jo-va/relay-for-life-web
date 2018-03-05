@@ -1,0 +1,23 @@
+#loginModal .modal-card {
+	max-width: 350px;
+}
+.has-big-margin-bottom {
+	margin-bottom: 40px;
+}
+
+.has-big-margin-top {
+	margin-top: 40px;
+}
+
+.modal-background {
+	z-index: 10010 !important;
+}
+
+.modal {
+	z-index: 10050 !important;
+}
+
+.modal-card {
+	z-index: 10100 !important;
+}
+
